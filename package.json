@@ -1,0 +1,29 @@
+{
+  "name": "clingojs",
+  "version": "1.0.0",
+  "description": "A wrapper module for the Clingo program.",
+  "main": "clingo.js",
+  "scripts": {
+    "test": "node ./bin/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dousto/clingojs.git"
+  },
+  "keywords": [
+    "clingo",
+    "answer",
+    "set",
+    "solver",
+    "asp"
+  ],
+  "author": "Doug Stoeckmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dousto/clingojs/issues"
+  },
+  "homepage": "https://github.com/dousto/clingojs",
+  "devDependencies": {
+    "nodeunit": "^0.9.0"
+  }
+}
