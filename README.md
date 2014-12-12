@@ -57,6 +57,8 @@ The following sections document the different options that can be passed to the 
 
 ### clingo
 
+A string which specifies the clingo command. May be a full path, or just the name of the executable if it is on the environment's path.
+
 ```javascript
 var clingo = new Clingo({
 	clingo: '/usr/bin/clingo'
@@ -66,6 +68,8 @@ var clingo = new Clingo({
 Default: 'clingo'
 
 ### maxModels
+
+The maximum number of models to find. If maxModels is 0 then all models are found.
 
 ```javascript
 var clingo = new Clingo({
@@ -77,15 +81,19 @@ Default: 1
 
 ### constants
 
+An object to specify clingo constants. This uses the clingo '-c' argument.
+
 ```javascript
 var clingo = new Clingo({
-	constants: { foo: 0, bar = 1 }
+	constants: { foo: 0, bar = 1 } // The same as passing '-c foo=0,bar=1' on the command line
 });
 ```
 
-Default: undefined
+Default: {}
 
 ### inputFiles
+
+An array of input files for the clingo process to read in. These files should be written using gringo syntax.
 
 ```javascript
 var clingo = new Clingo({
@@ -97,6 +105,13 @@ Default: []
 
 ### input
 
+The input config property defines input which is to be written to the process' stdin when _solve()_ is called. It can be one of the following:
+
+- string: A string is written as it appears to stdin.
+- Array: An Array will be interpreted as atoms, the written to stdin. For example, the array ['example(0)', 'example(1)'] will be written as 'example(0). example(1).'
+- Readable stream: A Readable stream will be piped to stdin.
+- Object: Any other object not listed above will have the output of its _toString()_ written to stdin.
+
 ```javascript
 var clingo = new Clingo({
 	input: 'tobe | not tobe.'
@@ -106,6 +121,8 @@ var clingo = new Clingo({
 Default: undefined
 
 ### args
+
+Defines any additional arguments to start the clingo process with.
 
 ```javascript
 var clingo = new Clingo({
@@ -117,20 +134,43 @@ Default: []
 
 ### returnStdin
 
+When set to _true_, the clingo process' stdin will be left open to be further written to. When _solve()_ is invoked, the returned object will then have a _stdin_ property which is a Writable stream. Don't forget to call _stdin.end()_ or the process will not exit.
+
 ```javascript
 var clingo = new Clingo({
 	returnStdin: true
+})
+
+var ps = clingo.solve({
+	//... options
 });
+
+ps.stdin.write('I can write more to the process stdin!');
+ps.stdin.end();
 ```
 
 Default: false
 
 ### returnStdout
 
+When set to _true_, this bypasses the module's own interpreting of the process output, and instead returns the process stdout as a property of the object returned from _solve()_.
+
 ```javascript
 var clingo = new Clingo({
 	returnStdout: true
+})
+
+var ps = clingo.solve({
+	//... options
 });
+
+ps.stdout.setEncoding('utf8');
+ps.stdout.on('data', function(data) {
+	// This is where you would read the process output directly
+});
+ps.stdout.on('end', function() {
+	// Called when the output has been fully read
+})
 ```
 
 Default: false
