@@ -51,7 +51,7 @@ Completely replaces this instance's configuration object with _config_.
 
 ### clingo.solve([options])
 
-Starts the Clingo process. The process uses the instance's configuration, in addition to any other configurations passed in the options _options_ argument. Note: Any configurations passed in _options_ do not last beyond the solve() function.
+Starts the Clingo process. The process uses the instance's configuration, in addition to any other configurations passed in the _options_ argument. Note: Any configurations passed in _options_ do not last beyond the solve() function.
 
 Returns an object of the form { on: [Function] }. See the __Basic Usage__ section for an example.
 
