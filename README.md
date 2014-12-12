@@ -31,6 +31,10 @@ clingo.solve({
 
 ## Class: Clingo
 
+### Clingo([options])
+
+The Clingo constructor takes an optional _options_ argument containing configuration options detailed in the __Configuration__ section.
+
 ### clingo.config([options])
 
 If options argument is present, merges the _options_ object into the configuration of this clingo instance and returns the instance.
@@ -46,3 +50,87 @@ Completely replaces this instance's configuration object with _config_.
 Starts the Clingo process. The process uses the instances configuration, in addition to any other configurations passed in the options _options_ argument. Note: Any configurations passed in _options_ do not last beyond the solve() function.
 
 Returns an object of the form { on: [Function] }. See the __Basic Usage__ section for an example.
+
+## Configuration
+
+The following sections document the different options that can be passed to the _config()_, _setConfig()_, and _solve()_ functions.
+
+### clingo
+
+```javascript
+var clingo = new Clingo({
+	clingo: '/usr/bin/clingo'
+});
+```
+
+Default: 'clingo'
+
+### maxModels
+
+```javascript
+var clingo = new Clingo({
+	maxModels: 0
+});
+```
+
+Default: 1
+
+### constants
+
+```javascript
+var clingo = new Clingo({
+	constants: { foo: 0, bar = 1 }
+});
+```
+
+Default: undefined
+
+### inputFiles
+
+```javascript
+var clingo = new Clingo({
+	inputFiles: ['/path/to/file', '/path/to/otherFile']
+});
+```
+
+Default: []
+
+### input
+
+```javascript
+var clingo = new Clingo({
+	input: 'tobe | not tobe.'
+});
+```
+
+Default: undefined
+
+### args
+
+```javascript
+var clingo = new Clingo({
+	args: ['--time-limit=10']
+});
+```
+
+Default: []
+
+### returnStdin
+
+```javascript
+var clingo = new Clingo({
+	returnStdin: true
+});
+```
+
+Default: false
+
+### returnStdout
+
+```javascript
+var clingo = new Clingo({
+	returnStdout: true
+});
+```
+
+Default: false
