@@ -18,7 +18,7 @@
     "asp"
   ],
   "author": "Doug Stoeckmann",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dousto/clingojs/issues"
   },
