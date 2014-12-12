@@ -1,10 +1,10 @@
 # clingojs
-========
+----------
 
 A wrapper module for the Clingo program.
 
 ## Basic Usage
-==============
+--------------
 
 ```javascript
 var Clingo = require('clingo');
