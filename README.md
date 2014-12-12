@@ -33,7 +33,7 @@ clingo.solve({
 
 If options argument is present, merges the _options_ object into the configuration of this clingo instance and returns the instance.
 
-If options is missing, returns the configuration object of this clingo instance.
+If _options_ is missing, returns the configuration object of this clingo instance.
 
 ### clingo.setConfig(config)
 
