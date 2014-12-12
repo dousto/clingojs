@@ -26,3 +26,21 @@ clingo.solve({
 		// This function gets called after all models have been received
 	});
 ```
+
+## Class: Clingo
+
+### clingo.config([options])
+
+If options argument is present, merges the _options_ object into the configuration of this clingo instance and returns the instance.
+
+If options is missing, returns the configuration object of this clingo instance.
+
+### clingo.setConfig(config)
+
+Completely replaces this instance's configuration object with _config_.
+
+### clingo.solve([options])
+
+Starts the Clingo process. The process uses the instances configuration, in addition to any other configurations passed in the options _options_ argument. Note: Any configurations passed in _options_ do not last beyond the solve() function.
+
+Returns an object of the form { on: [Function] }. See the __Basic Usage__ section for an example.
