@@ -3,6 +3,8 @@
 
 A wrapper module for the Clingo program.
 
+This module requires Clingo to be installed to work. Tested with Clingo 4.2.1 but likely works with other versions as well.
+
 ## Basic Usage
 --------------
 
