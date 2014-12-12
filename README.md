@@ -1,7 +1,11 @@
 # clingojs
 ----------
 
-A wrapper module for the Clingo program.
+A Node.js wrapper module for the Clingo program.
+
+```
+npm install clingojs
+```
 
 This module requires Clingo to be installed to work. Tested with Clingo 4.2.1 but likely works with other versions as well.
 
