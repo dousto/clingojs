@@ -37,7 +37,7 @@ clingo.solve({
 
 ### Clingo([options])
 
-The Clingo constructor takes an optional _options_ argument containing configuration options detailed in the __Configuration__ section.
+The Clingo constructor takes an optional _options_ argument containing configuration options detailed in the [__Configuration__](#configuration) section.
 
 ### clingo.config([options])
 
@@ -53,7 +53,7 @@ Completely replaces this instance's configuration object with _config_.
 
 Starts the Clingo process. The process uses the instance's configuration, in addition to any other configurations passed in the _options_ argument. Note: Any configurations passed in _options_ do not last beyond the solve() function.
 
-Returns an object of the form { on: [Function] }. See the __Basic Usage__ section for an example.
+Returns an object of the form { on: [Function] }. See the [__Basic Usage__](#basic-usage) section for an example.
 
 ## Configuration
 
