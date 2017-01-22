@@ -78,13 +78,12 @@ Clingo.prototype.solve = function(options) {
     var config = mergeConfigs(this._config, options);
     this.validateConfig();
 
-    // Convert object of form {var1: val1, var2: val2} to 'var1=val1,var2=val2'
-    var constantMapString = '';
+    // Convert object of form {var1: val1, var2: val2} to ['-c var1=val1', '-c var2=val2']
+    var constArray = [];
     if (config.constants) {
         for (var varName in config.constants) {
-            constantMapString += varName + '=' + config.constants[varName] + ','
+            constArray.push('-c ' + varName + '=' + config.constants[varName])
         }
-        constantMapString = constantMapString.replace(/,$/, '');
     }
 
     // Set arguments for the clingo process
@@ -92,7 +91,7 @@ Clingo.prototype.solve = function(options) {
     args.push(config.maxModels != undefined ? config.maxModels : 1);
     // Output only the answer sets, unless user wants to handle stdout
     if (!config.returnStdout) args.push('--verbose=0');
-    if (constantMapString.length > 0) args.push('-c ' + constantMapString);
+    if (constArray.length > 0) args = args.concat(constArray);
     args = args.concat(config.args ? config.args : [],
         config.inputFiles ? config.inputFiles : []);
     if (config.input) args.push('-');
