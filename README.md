@@ -7,13 +7,13 @@ A Node.js wrapper module for the Clingo program.
 npm install clingojs
 ```
 
-This module requires Clingo to be installed to work. Tested with Clingo 4.2.1 but likely works with other versions as well.
+This module requires Clingo to be installed to work. Recently it has been tested with Clingo 5.4.0 but likely works with other versions as well.
 
 ## Basic Usage
 --------------
 
 ```javascript
-var Clingo = require('clingo');
+var Clingo = require('clingojs');
 
 var clingo = new Clingo();
 
